@@ -1,0 +1,7 @@
+{
+  "name": "fractorio",
+  "sprites":[
+    "conveyor",
+	"iron_ore"
+  ]
+}
