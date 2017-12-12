@@ -1,4 +1,4 @@
-package me.infuzion.fractorio.sprite;
+package me.infuzion.factorysim.sprite;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;

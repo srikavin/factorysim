@@ -1,4 +1,4 @@
-package me.infuzion.fractorio.sprite;
+package me.infuzion.factorysim.sprite;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -12,8 +12,8 @@ public class Sprite {
     private final Image image;
     private final SpriteIdentifier identifier;
     private final boolean animated;
-    private long lastUpdate = 0;
     private Frame[] frames;
+    private long lastUpdate = 0;
     private int currentFrame = 0;
 
     public Sprite(Image image, SpriteIdentifier identifier) {
@@ -42,25 +42,26 @@ public class Sprite {
         int i = 0;
         for (JsonElement e : array) {
             JsonObject frame = e.getAsJsonObject().getAsJsonObject("frame");
-            Frame frameS = new Frame();
-            frameS.x = frame.get("x").getAsInt();
-            frameS.y = frame.get("y").getAsInt();
-            frameS.w = frame.get("w").getAsInt();
-            frameS.h = frame.get("h").getAsInt();
-            frameS.duration = e.getAsJsonObject().get("duration").getAsInt();
+            int x = frame.get("x").getAsInt();
+            int y = frame.get("y").getAsInt();
+            int w = frame.get("w").getAsInt();
+            int h = frame.get("h").getAsInt();
+            int duration = e.getAsJsonObject().get("duration").getAsInt();
+            Frame frameS = new Frame(x, y, w, h, duration, new WritableImage(reader, x, y, w, h));
             frames[i] = frameS;
             i++;
         }
-        for (Frame e : frames) {
-            e.image = new WritableImage(reader, e.x, e.y, e.w, e.h);
-        }
     }
 
-    public int getCurrentFrame() {
+    public Frame getCurrentFrame() {
+        return frames[currentFrame];
+    }
+
+    public int getCurrentFrameIndex() {
         return currentFrame;
     }
 
-    public void setCurrentFrame(int currentFrame) {
+    public void setCurrentFrameIndex(int currentFrame) {
         this.currentFrame = currentFrame;
     }
 
@@ -68,11 +69,11 @@ public class Sprite {
         if (!animated) {
             return image;
         }
-        return frames[currentFrame].image;
+        return frames[currentFrame].getImage();
     }
 
     public void update() {
-        if(!animated){
+        if (!animated) {
             return;
         }
 
@@ -82,7 +83,7 @@ public class Sprite {
             currentFrame = 0;
         }
 
-        if (curTime - lastUpdate >= frames[currentFrame].duration * 50) {
+        if (curTime - lastUpdate >= frames[currentFrame].getDuration() * 50) {
             lastUpdate = curTime;
             currentFrame++;
         }
@@ -90,14 +91,5 @@ public class Sprite {
 
     public SpriteIdentifier getIdentifier() {
         return identifier;
-    }
-
-    static class Frame {
-        int x;
-        int y;
-        int w;
-        int h;
-        int duration;
-        Image image;
     }
 }

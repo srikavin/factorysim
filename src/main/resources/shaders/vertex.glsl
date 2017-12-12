@@ -1,16 +1,13 @@
-#version 150 core
+#version 330 core
 
-in vec3 position;
-in vec3 color;
+layout(location = 0) in vec3 vertexPosition;
+layout(location = 1) in vec3 colorsFragment;
 
-out vec3 vertexColor;
+out vec3 colors;
 
-uniform mat4 model;
-uniform mat4 view;
-uniform mat4 projection;
+uniform mat4 MVP;
 
-void main() {
-    vertexColor = color;
-    mat4 mvp = projection * view * model;
-    gl_Position = mvp * vec4(position, 1.0);
+void main(){
+	gl_Position = MVP * vec4(vertexPosition, 1);
+	colors = colorsFragment;
 }

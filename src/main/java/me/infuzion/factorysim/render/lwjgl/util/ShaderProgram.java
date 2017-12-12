@@ -1,13 +1,11 @@
-package me.infuzion.fractorio.render.lwjgl.util;
+package me.infuzion.factorysim.render.lwjgl.util;
 
 import static org.lwjgl.opengl.GL20.*;
 
 public class ShaderProgram {
 
     private final int programId;
-
     private int vertexShaderId;
-
     private int fragmentShaderId;
 
     public ShaderProgram() {
@@ -15,6 +13,10 @@ public class ShaderProgram {
         if (programId == 0) {
             throw new RuntimeException("Could not create Shader");
         }
+    }
+
+    public int getProgramId() {
+        return programId;
     }
 
     public void createVertexShader(String shaderCode) {

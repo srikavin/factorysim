@@ -1,6 +1,6 @@
-package me.infuzion.fractorio.render;
+package me.infuzion.factorysim.render;
 
-import me.infuzion.fractorio.sprite.SpriteIdentifier;
+import me.infuzion.factorysim.sprite.SpriteIdentifier;
 
 public class RenderInfo {
     private SpriteIdentifier sprite;

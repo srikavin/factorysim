@@ -1,4 +1,4 @@
-package me.infuzion.fractorio.inventory;
+package me.infuzion.factorysim.inventory;
 
 public enum Direction {
     TOP_LEFT,

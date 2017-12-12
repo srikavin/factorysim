@@ -1,9 +1,9 @@
-package me.infuzion.fractorio;
+package me.infuzion.factorysim;
 
 import javafx.scene.canvas.Canvas;
 import javafx.scene.input.ScrollEvent;
-import me.infuzion.fractorio.object.GameObject;
-import me.infuzion.fractorio.sprite.SpriteLoader;
+import me.infuzion.factorysim.object.GameObject;
+import me.infuzion.factorysim.sprite.SpriteLoader;
 
 import java.util.ArrayList;
 import java.util.HashMap;

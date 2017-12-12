@@ -1,4 +1,4 @@
-package me.infuzion.fractorio.render;
+package me.infuzion.factorysim.render;
 
 public class Camera {
 

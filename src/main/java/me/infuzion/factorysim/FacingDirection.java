@@ -1,4 +1,4 @@
-package me.infuzion.fractorio;
+package me.infuzion.factorysim;
 
 public enum FacingDirection {
     NORTH(0),

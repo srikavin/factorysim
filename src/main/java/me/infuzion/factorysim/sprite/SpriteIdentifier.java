@@ -1,4 +1,4 @@
-package me.infuzion.fractorio.sprite;
+package me.infuzion.factorysim.sprite;
 
 public class SpriteIdentifier {
     private final String mod;

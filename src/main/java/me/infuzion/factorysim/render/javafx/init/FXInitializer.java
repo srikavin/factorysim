@@ -1,4 +1,4 @@
-package me.infuzion.fractorio.render.javafx.init;
+package me.infuzion.factorysim.render.javafx.init;
 
 import javafx.application.Application;
 import javafx.scene.Group;
@@ -6,11 +6,12 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.stage.Stage;
-import me.infuzion.fractorio.input.InputHandler;
-import me.infuzion.fractorio.render.Initializer;
-import me.infuzion.fractorio.render.javafx.FXRenderer;
-import me.infuzion.fractorio.render.Renderer;
-import me.infuzion.fractorio.sprite.SpriteLoader;
+import me.infuzion.factorysim.input.FXInputHandler;
+import me.infuzion.factorysim.input.InputHandler;
+import me.infuzion.factorysim.render.Initializer;
+import me.infuzion.factorysim.render.Renderer;
+import me.infuzion.factorysim.render.javafx.FXRenderer;
+import me.infuzion.factorysim.sprite.SpriteLoader;
 
 public class FXInitializer extends Application implements Initializer {
     private static volatile GraphicsContext context;
@@ -31,12 +32,12 @@ public class FXInitializer extends Application implements Initializer {
 
     @Override
     public InputHandler initInput() {
-        return null;
+        return new FXInputHandler(context.getCanvas());
     }
 
     @Override
-    public void start(Stage stage) throws Exception {
-        stage.setTitle("Fractorio");
+    public void start(Stage stage) {
+        stage.setTitle("Factory Simulator");
 
         Canvas canvas = new Canvas(512, 512);
         canvas.setFocusTraversable(true);

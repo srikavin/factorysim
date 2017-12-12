@@ -1,7 +1,7 @@
-package me.infuzion.fractorio.item;
+package me.infuzion.factorysim.item;
 
 import javafx.scene.image.Image;
-import me.infuzion.fractorio.sprite.SpriteLoader;
+import me.infuzion.factorysim.sprite.SpriteLoader;
 
 public abstract class Item {
     public void init(SpriteLoader spriteLoader) {

@@ -1,4 +1,4 @@
-package me.infuzion.fractorio.render.lwjgl.util;
+package me.infuzion.factorysim.render.lwjgl.util;
 
 import org.lwjgl.BufferUtils;
 import org.lwjgl.PointerBuffer;
@@ -99,7 +99,7 @@ public class LWJGLUtil {
      * @return the shader object id
      * @throws IOException
      */
-    public static int createShader(String resource, int type, String version) throws IOException {
+    public static int createShader(String resource, int type, String version) {
         int shader = glCreateShader(type);
 
         ByteBuffer source = ioResourceToByteBuffer(resource, 8192);

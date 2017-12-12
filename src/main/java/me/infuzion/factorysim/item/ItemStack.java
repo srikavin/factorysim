@@ -1,8 +1,8 @@
-package me.infuzion.fractorio.item;
+package me.infuzion.factorysim.item;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
-import me.infuzion.fractorio.sprite.SpriteLoader;
+import me.infuzion.factorysim.sprite.SpriteLoader;
 
 public class ItemStack {
     private final Item type;

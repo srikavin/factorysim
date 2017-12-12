@@ -1,9 +1,9 @@
-package me.infuzion.fractorio.item.base;
+package me.infuzion.factorysim.item.base;
 
 import javafx.scene.image.Image;
-import me.infuzion.fractorio.item.Item;
-import me.infuzion.fractorio.sprite.Sprite;
-import me.infuzion.fractorio.sprite.SpriteLoader;
+import me.infuzion.factorysim.item.Item;
+import me.infuzion.factorysim.sprite.Sprite;
+import me.infuzion.factorysim.sprite.SpriteLoader;
 
 public class IronPlate extends Item {
     private static Sprite sprite;

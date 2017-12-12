@@ -1,15 +1,15 @@
-package me.infuzion.fractorio.object.base.conveyor;
+package me.infuzion.factorysim.object.base.conveyor;
 
-import me.infuzion.fractorio.GameWorld;
-import me.infuzion.fractorio.inventory.Direction;
-import me.infuzion.fractorio.inventory.Inventory;
-import me.infuzion.fractorio.item.Item;
-import me.infuzion.fractorio.item.ItemStack;
-import me.infuzion.fractorio.item.base.IronPlate;
-import me.infuzion.fractorio.object.GameObject;
-import me.infuzion.fractorio.render.RenderInfo;
-import me.infuzion.fractorio.sprite.SpriteIdentifier;
-import me.infuzion.fractorio.sprite.SpriteLoader;
+import me.infuzion.factorysim.GameWorld;
+import me.infuzion.factorysim.inventory.Direction;
+import me.infuzion.factorysim.inventory.Inventory;
+import me.infuzion.factorysim.item.Item;
+import me.infuzion.factorysim.item.ItemStack;
+import me.infuzion.factorysim.item.base.IronPlate;
+import me.infuzion.factorysim.object.GameObject;
+import me.infuzion.factorysim.render.RenderInfo;
+import me.infuzion.factorysim.sprite.SpriteIdentifier;
+import me.infuzion.factorysim.sprite.SpriteLoader;
 
 public class Conveyor extends GameObject implements Inventory {
 

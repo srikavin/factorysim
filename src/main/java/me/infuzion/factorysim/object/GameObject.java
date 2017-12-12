@@ -1,10 +1,9 @@
-package me.infuzion.fractorio.object;
+package me.infuzion.factorysim.object;
 
-import javafx.scene.canvas.GraphicsContext;
-import me.infuzion.fractorio.GameWorld;
-import me.infuzion.fractorio.Position;
-import me.infuzion.fractorio.render.RenderInfo;
-import me.infuzion.fractorio.sprite.SpriteLoader;
+import me.infuzion.factorysim.GameWorld;
+import me.infuzion.factorysim.Position;
+import me.infuzion.factorysim.render.RenderInfo;
+import me.infuzion.factorysim.sprite.SpriteLoader;
 
 import java.util.UUID;
 

@@ -1,7 +1,7 @@
-package me.infuzion.fractorio.inventory;
+package me.infuzion.factorysim.inventory;
 
-import me.infuzion.fractorio.item.Item;
-import me.infuzion.fractorio.item.ItemStack;
+import me.infuzion.factorysim.item.Item;
+import me.infuzion.factorysim.item.ItemStack;
 
 public interface Inventory {
     boolean hasItem(Item item);

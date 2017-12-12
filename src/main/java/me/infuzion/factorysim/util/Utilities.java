@@ -1,4 +1,4 @@
-package me.infuzion.fractorio.util;
+package me.infuzion.factorysim.util;
 
 import org.apache.commons.io.IOUtils;
 

@@ -1,8 +1,7 @@
-package me.infuzion.fractorio.render;
+package me.infuzion.factorysim.render;
 
-import me.infuzion.fractorio.input.InputHandler;
-import me.infuzion.fractorio.render.Renderer;
-import me.infuzion.fractorio.sprite.SpriteLoader;
+import me.infuzion.factorysim.input.InputHandler;
+import me.infuzion.factorysim.sprite.SpriteLoader;
 
 public interface Initializer {
     Renderer initRenderer(SpriteLoader loader);

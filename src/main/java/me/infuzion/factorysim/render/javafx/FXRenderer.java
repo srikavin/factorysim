@@ -1,18 +1,18 @@
-package me.infuzion.fractorio.render.javafx;
+package me.infuzion.factorysim.render.javafx;
 
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
-import me.infuzion.fractorio.GameWorld;
-import me.infuzion.fractorio.Position;
-import me.infuzion.fractorio.object.GameObject;
-import me.infuzion.fractorio.render.Camera;
-import me.infuzion.fractorio.render.RenderInfo;
-import me.infuzion.fractorio.render.Renderer;
-import me.infuzion.fractorio.sprite.Sprite;
-import me.infuzion.fractorio.sprite.SpriteIdentifier;
-import me.infuzion.fractorio.sprite.SpriteLoader;
-import me.infuzion.fractorio.util.Pair;
+import me.infuzion.factorysim.GameWorld;
+import me.infuzion.factorysim.Position;
+import me.infuzion.factorysim.object.GameObject;
+import me.infuzion.factorysim.render.Camera;
+import me.infuzion.factorysim.render.RenderInfo;
+import me.infuzion.factorysim.render.Renderer;
+import me.infuzion.factorysim.sprite.Sprite;
+import me.infuzion.factorysim.sprite.SpriteIdentifier;
+import me.infuzion.factorysim.sprite.SpriteLoader;
+import me.infuzion.factorysim.util.Pair;
 
 import java.util.HashMap;
 import java.util.Map;

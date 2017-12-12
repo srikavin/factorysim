@@ -1,18 +1,18 @@
-package me.infuzion.fractorio.render.lwjgl.init;
+package me.infuzion.factorysim.render.lwjgl.init;
 
-import me.infuzion.fractorio.input.InputHandler;
-import me.infuzion.fractorio.input.LWJGLInputHandler;
-import me.infuzion.fractorio.render.Initializer;
-import me.infuzion.fractorio.render.Renderer;
-import me.infuzion.fractorio.render.lwjgl.LWJGLRenderer;
-import me.infuzion.fractorio.sprite.SpriteLoader;
+import me.infuzion.factorysim.input.InputHandler;
+import me.infuzion.factorysim.input.LWJGLInputHandler;
+import me.infuzion.factorysim.render.Initializer;
+import me.infuzion.factorysim.render.Renderer;
+import me.infuzion.factorysim.render.lwjgl.LWJGLRenderer;
+import me.infuzion.factorysim.sprite.SpriteLoader;
 import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.glfw.GLFWVidMode;
 import org.lwjgl.opengl.GL;
 import org.lwjgl.system.Configuration;
 
 import static org.lwjgl.glfw.GLFW.*;
-import static org.lwjgl.opengl.GL11.*;
+import static org.lwjgl.opengl.GL11.glClearColor;
 import static org.lwjgl.system.MemoryUtil.NULL;
 
 public class LWJGLInitializer implements Initializer {
@@ -29,14 +29,16 @@ public class LWJGLInitializer implements Initializer {
         }
 
         glfwDefaultWindowHints();
-        glfwWindowHint(GLFW_VISIBLE, GL_FALSE);
-        glfwWindowHint(GLFW_RESIZABLE, GL_TRUE);
+        glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE);
+        glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
+        glfwWindowHint(GLFW_SAMPLES, 4);
         glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-        glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
-        glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+        glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+        glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, GLFW_TRUE);
         glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+        glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GLFW_TRUE);
 
-        window = glfwCreateWindow(640, 640, "Fractorio", NULL, NULL);
+        window = glfwCreateWindow(640, 640, "Factory Simulator", NULL, NULL);
 
         if (window == NULL) {
             throw new IllegalStateException("Unable to create GLFW Window");

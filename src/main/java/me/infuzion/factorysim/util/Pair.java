@@ -1,4 +1,4 @@
-package me.infuzion.fractorio.util;
+package me.infuzion.factorysim.util;
 
 public class Pair<K, V> {
     private final K left;

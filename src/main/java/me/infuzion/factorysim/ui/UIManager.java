@@ -1,4 +1,4 @@
-package me.infuzion.fractorio.ui;
+package me.infuzion.factorysim.ui;
 
 public class UIManager {
     public UIManager(){

@@ -1,4 +1,4 @@
-package me.infuzion.fractorio.input;
+package me.infuzion.factorysim.input;
 
 import java.util.Set;
 

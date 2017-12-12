@@ -1,58 +1,46 @@
-package me.infuzion.fractorio;
+package me.infuzion.factorysim;
 
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
+import me.infuzion.factorysim.input.InputHandler;
+import me.infuzion.factorysim.input.KeyInput;
 
-import java.util.EnumSet;
+import java.util.List;
+import java.util.Set;
 
 public class KeyHandler {
-
     private final GameWorld world;
-    private final EnumSet<Key> currentlyPressed = EnumSet.noneOf(Key.class);
+    private List<InputHandler> inputs;
 
-    public KeyHandler(GameWorld world) {
+    public KeyHandler(GameWorld world, List<InputHandler> inputs) {
         this.world = world;
-    }
-
-    public void onKeyPress(KeyEvent event) {
-        if (event.getCode() == KeyCode.A) {
-            currentlyPressed.add(Key.LEFT);
-        } else if (event.getCode() == KeyCode.D) {
-            currentlyPressed.add(Key.RIGHT);
-        } else if (event.getCode() == KeyCode.W) {
-            currentlyPressed.add(Key.UP);
-        } else if (event.getCode() == KeyCode.S) {
-            currentlyPressed.add(Key.DOWN);
-        }
-    }
-
-    public void onKeyRelease(KeyEvent event) {
-        if (event.getCode() == KeyCode.A) {
-            currentlyPressed.remove(Key.LEFT);
-        } else if (event.getCode() == KeyCode.D) {
-            currentlyPressed.remove(Key.RIGHT);
-        } else if (event.getCode() == KeyCode.W) {
-            currentlyPressed.remove(Key.UP);
-        } else if (event.getCode() == KeyCode.S) {
-            currentlyPressed.remove(Key.DOWN);
-        }
+        this.inputs = inputs;
     }
 
     public void tick() {
-        for (Key e : currentlyPressed) {
-            switch (e) {
-                case LEFT:
-                    world.panLeft();
-                    break;
-                case RIGHT:
-                    world.panRight();
-                    break;
-                case UP:
-                    world.panUp();
-                    break;
-                case DOWN:
-                    world.panDown();
-                    break;
+        for (InputHandler input : inputs) {
+            Set<KeyInput> current = input.getKeyEvents();
+
+            for (KeyInput e : current) {
+                System.out.println("handling " + e);
+                switch (e) {
+                    case MOVE_LEFT:
+                        world.panLeft();
+                        break;
+                    case MOVE_RIGHT:
+                        world.panRight();
+                        break;
+                    case MOVE_UP:
+                        world.panUp();
+                        break;
+                    case MOVE_DOWN:
+                        world.panDown();
+                        break;
+                    case ZOOM_IN:
+                        world.zoomIn();
+                        break;
+                    case ZOOM_OUT:
+                        world.zoomOut();
+                        break;
+                }
             }
         }
     }

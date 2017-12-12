@@ -1,4 +1,4 @@
-package me.infuzion.fractorio.input;
+package me.infuzion.factorysim.input;
 
 import java.util.EnumSet;
 import java.util.Set;
@@ -11,8 +11,10 @@ public class LWJGLInputHandler implements InputHandler {
     public LWJGLInputHandler(long windowP) {
         glfwSetScrollCallback(windowP, (window, xoffset, yoffset) -> {
             if (yoffset > 0) {
+                process(KeyInput.ZOOM_OUT, false);
                 process(KeyInput.ZOOM_IN, true);
             } else if (yoffset < 0) {
+                process(KeyInput.ZOOM_IN, false);
                 process(KeyInput.ZOOM_OUT, true);
             } else {
                 process(KeyInput.ZOOM_IN, false);
@@ -31,17 +33,17 @@ public class LWJGLInputHandler implements InputHandler {
                     process(KeyInput.MOVE_LEFT, action);
                     break;
                 case GLFW_KEY_S:
-                    process(KeyInput.MOVE_RIGHT, action);
+                    process(KeyInput.MOVE_DOWN, action);
                     break;
                 case GLFW_KEY_D:
-                    process(KeyInput.MOVE_DOWN, action);
+                    process(KeyInput.MOVE_RIGHT, action);
                     break;
             }
         });
     }
 
     private void process(KeyInput keyInput, boolean press) {
-        System.out.println(keyInput);
+        System.out.println(keyInput + "" + press);
         if (press) {
             set.add(keyInput);
         } else {
@@ -50,7 +52,7 @@ public class LWJGLInputHandler implements InputHandler {
     }
 
     private void process(KeyInput keyInput, int action) {
-        if (action == GLFW_PRESS) {
+        if (action == GLFW_PRESS || action == GLFW_REPEAT) {
             process(keyInput, true);
         } else {
             process(keyInput, false);
@@ -64,6 +66,8 @@ public class LWJGLInputHandler implements InputHandler {
 
     @Override
     public void tick() {
+        set.remove(KeyInput.ZOOM_IN);
+        set.remove(KeyInput.ZOOM_OUT);
         glfwPollEvents();
     }
 }

@@ -1,13 +1,13 @@
-package me.infuzion.fractorio.object.base;
+package me.infuzion.factorysim.object.base;
 
-import me.infuzion.fractorio.GameWorld;
-import me.infuzion.fractorio.inventory.Direction;
-import me.infuzion.fractorio.inventory.Inventory;
-import me.infuzion.fractorio.item.Item;
-import me.infuzion.fractorio.item.ItemStack;
-import me.infuzion.fractorio.object.GameObject;
-import me.infuzion.fractorio.render.RenderInfo;
-import me.infuzion.fractorio.sprite.SpriteIdentifier;
+import me.infuzion.factorysim.GameWorld;
+import me.infuzion.factorysim.inventory.Direction;
+import me.infuzion.factorysim.inventory.Inventory;
+import me.infuzion.factorysim.item.Item;
+import me.infuzion.factorysim.item.ItemStack;
+import me.infuzion.factorysim.object.GameObject;
+import me.infuzion.factorysim.render.RenderInfo;
+import me.infuzion.factorysim.sprite.SpriteIdentifier;
 
 import java.util.Objects;
 
@@ -58,7 +58,7 @@ public class Furnace extends GameObject implements Inventory {
     @Override
     public void tick(GameWorld world) {
         if(tick == 100){
-            renderInfo.setSprite(new SpriteIdentifier("fractorio", "furnace", "on"));
+            renderInfo.setSprite(new SpriteIdentifier("base", "furnace", "on"));
         }
     }
 }

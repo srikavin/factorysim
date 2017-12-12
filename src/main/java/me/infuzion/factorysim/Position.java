@@ -1,4 +1,4 @@
-package me.infuzion.fractorio;
+package me.infuzion.factorysim;
 
 import java.util.ArrayList;
 import java.util.List;
