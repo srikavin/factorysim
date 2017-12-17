@@ -1,7 +1,8 @@
 package me.infuzion.factorysim;
 
-import me.infuzion.factorysim.input.InputHandler;
-import me.infuzion.factorysim.input.KeyInput;
+import me.infuzion.engine.input.InputHandler;
+import me.infuzion.engine.input.KeyInput;
+import me.infuzion.engine.world.GameWorld;
 
 import java.util.List;
 import java.util.Set;

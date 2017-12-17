@@ -1,12 +1,14 @@
 package me.infuzion.factorysim;
 
-import me.infuzion.factorysim.input.InputHandler;
-import me.infuzion.factorysim.object.base.Furnace;
-import me.infuzion.factorysim.object.base.conveyor.Conveyor;
-import me.infuzion.factorysim.render.Camera;
-import me.infuzion.factorysim.render.Renderer;
-import me.infuzion.factorysim.render.lwjgl.init.LWJGLInitializer;
-import me.infuzion.factorysim.sprite.SpriteLoader;
+import me.infuzion.engine.input.InputHandler;
+import me.infuzion.engine.render.Camera;
+import me.infuzion.engine.render.Renderer;
+import me.infuzion.engine.render.lwjgl.init.LWJGLInitializer;
+import me.infuzion.engine.sprite.SpriteLoader;
+import me.infuzion.engine.world.GameWorld;
+import me.infuzion.engine.world.Position;
+import me.infuzion.factorysim.object.Furnace;
+import me.infuzion.factorysim.object.conveyor.Conveyor;
 
 import java.util.Arrays;
 
