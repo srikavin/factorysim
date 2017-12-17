@@ -95,15 +95,14 @@ public class LWJGLRenderer implements Renderer {
             0.820f, 0.883f, 0.371f,
             0.982f, 0.099f, 0.879f
     };
-    FloatBuffer mvpMatrixBuffer;
-    int val = 0;
-    int i = 0;
+    private FloatBuffer mvpMatrixBuffer;
     private int matrixId;
     private long window;
     private int vertexBuffer;
     private int vaoId;
     private ShaderProgram shader;
     private int colorBuffer;
+
     public LWJGLRenderer(long window) {
         this.window = window;
 
@@ -153,19 +152,16 @@ public class LWJGLRenderer implements Renderer {
 
     private void setMVPUniform() {
         Matrix4f projection = new Matrix4f();
-        projection.perspective((float) Math.toRadians(45), 4.0f / 3.0f, 0.1f, 100f);
+        projection.perspective((float) Math.toRadians(110), 4.0f / 3.0f, 0.1f, 100f);
 
-        Matrix4f view = new Matrix4f()
-                .lookAt(4 - (i % 150) / 50f, 3 - (i % 150) / 50f, -3, 0, 2 - (i % 150) / 50.0f, 0, 0, 1 - (i % 150) / 151f, 0);
 
         Matrix4f model = new Matrix4f().identity();
 
+        Matrix4f view = new Matrix4f()
+                .lookAt(0, 1, -2, 0, 1, 0, 0, 1, 0);
+
         Matrix4f MVP = projection.mul(view).mul(model);
         MVP.get(mvpMatrixBuffer);
-        if (i % 30 == 0) {
-            val++;
-        }
-        i++;
     }
 
     @Override

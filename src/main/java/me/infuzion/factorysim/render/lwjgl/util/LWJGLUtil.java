@@ -25,11 +25,7 @@ public class LWJGLUtil {
      * @throws IOException
      */
     public static int createShader(String resource, int type) {
-        try {
-            return createShader(resource, type, null);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        return createShader(resource, type, null);
     }
 
     private static ByteBuffer resizeBuffer(ByteBuffer buffer, int newCapacity) {
