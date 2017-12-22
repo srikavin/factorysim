@@ -36,7 +36,7 @@ public class FXRenderer implements Renderer {
         context.setFill(Color.BLUE);
         context.fillRect(0, 0, canvas.getHeight(), canvas.getWidth());
 
-        double scale = world.getScale();
+        double scale = camera.getScale();
 
         for (GameObject e : world.getObjects()) {
             UUID objID = e.getUuid();
@@ -60,8 +60,8 @@ public class FXRenderer implements Renderer {
             }
 
             double val = 32 * scale;
-            double xOffset = world.getOffSetX() * scale;
-            double yOffset = world.getOffSetY() * scale;
+            double xOffset = camera.getOffSetX() * scale;
+            double yOffset = camera.getOffSetY() * scale;
 
             context.drawImage(sprite.draw(), position.getX() * val + xOffset,
                     position.getY() * val + yOffset, 32 * scale, 32 * scale);

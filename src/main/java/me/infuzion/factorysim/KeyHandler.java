@@ -2,6 +2,7 @@ package me.infuzion.factorysim;
 
 import me.infuzion.engine.input.InputHandler;
 import me.infuzion.engine.input.KeyInput;
+import me.infuzion.engine.render.Camera;
 import me.infuzion.engine.world.GameWorld;
 
 import java.util.List;
@@ -9,10 +10,12 @@ import java.util.Set;
 
 public class KeyHandler {
     private final GameWorld world;
+    private Camera camera;
     private List<InputHandler> inputs;
 
-    public KeyHandler(GameWorld world, List<InputHandler> inputs) {
+    public KeyHandler(GameWorld world, Camera camera, List<InputHandler> inputs) {
         this.world = world;
+        this.camera = camera;
         this.inputs = inputs;
     }
 
@@ -24,32 +27,25 @@ public class KeyHandler {
                 System.out.println("handling " + e);
                 switch (e) {
                     case MOVE_LEFT:
-                        world.panLeft();
+                        camera.panLeft();
                         break;
                     case MOVE_RIGHT:
-                        world.panRight();
+                        camera.panRight();
                         break;
                     case MOVE_UP:
-                        world.panUp();
+                        camera.panUp();
                         break;
                     case MOVE_DOWN:
-                        world.panDown();
+                        camera.panDown();
                         break;
                     case ZOOM_IN:
-                        world.zoomIn();
+                        camera.zoomIn();
                         break;
                     case ZOOM_OUT:
-                        world.zoomOut();
+                        camera.zoomOut();
                         break;
                 }
             }
         }
-    }
-
-    private enum Key {
-        LEFT,
-        RIGHT,
-        UP,
-        DOWN
     }
 }

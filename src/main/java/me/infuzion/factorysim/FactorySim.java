@@ -26,12 +26,10 @@ public class FactorySim {
 //        InputHandler inputHandler2 = initializer.initInput();
         GameWorld world = new GameWorld(spriteLoader);
 
-//        GraphicsContext context = initializer.getContext();
 
         Camera camera = new Camera();
 
-//        world.init(context.getCanvas());
-        KeyHandler handler = new KeyHandler(world, Arrays.asList(inputHandler));
+        KeyHandler handler = new KeyHandler(world, camera, Arrays.asList(inputHandler));
 
         for (int i = 0; i < 20; i++) {
             Conveyor a = new Conveyor();
