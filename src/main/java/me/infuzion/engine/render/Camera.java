@@ -28,19 +28,19 @@ public class Camera {
     }
 
     public void panLeft() {
-        offSetX += 2 * scale;
+        offSetX += .5 * scale;
     }
 
     public void panRight() {
-        offSetX -= 2 * scale;
+        offSetX -= .5 * scale;
     }
 
     public void panUp() {
-        offSetY += 2 * scale;
+        offSetY += .5 * scale;
     }
 
     public void panDown() {
-        offSetY -= 2 * scale;
+        offSetY -= .5 * scale;
     }
 
     public double getOffSetZ() {

@@ -10,11 +10,15 @@ import me.infuzion.engine.world.Position;
 import me.infuzion.factorysim.object.Furnace;
 import me.infuzion.factorysim.object.conveyor.Conveyor;
 
+import java.lang.management.ManagementFactory;
 import java.util.Arrays;
 
 public class FactorySim {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
+        System.out.println(ManagementFactory.getRuntimeMXBean().getName());
+        Thread.sleep(2500);
+
         SpriteLoader spriteLoader = new SpriteLoader();
 
         LWJGLInitializer init = new LWJGLInitializer();
