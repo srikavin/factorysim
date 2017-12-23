@@ -17,15 +17,10 @@ public class FactorySim {
     public static void main(String[] args) {
         SpriteLoader spriteLoader = new SpriteLoader();
 
-//        FXInitializer initializer = new FXInitializer();
         LWJGLInitializer init = new LWJGLInitializer();
-//        init.initRenderer(spriteLoader);
-//        Renderer r2 = initializer.initRenderer(spriteLoader);
-        Renderer renderer = init.initRenderer(spriteLoader);//initializer.initRenderer(spriteLoader);
+        Renderer renderer = init.initRenderer(spriteLoader);
         InputHandler inputHandler = init.initInput();
-//        InputHandler inputHandler2 = initializer.initInput();
         GameWorld world = new GameWorld(spriteLoader);
-
 
         Camera camera = new Camera();
 
@@ -49,8 +44,6 @@ public class FactorySim {
         while (true) {
             long now = System.currentTimeMillis();
             renderer.render(world, camera);
-//            Platform.runLater(() ->
-//                    r2.render(world, camera));
             if (now - lastUpdate >= 40) {
                 lastUpdate = now;
                 handler.tick();
