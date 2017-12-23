@@ -1,6 +1,8 @@
 package me.infuzion.engine.render;
 
 public class Camera {
+    private final static double offSetZ = 5;
+    private final static double yRot = Math.toRadians(25);
     private double scale = 2.0;
     private double offSetX = 0;
     private double offSetY = 0;
@@ -39,5 +41,9 @@ public class Camera {
 
     public void panDown() {
         offSetY -= 2 * scale;
+    }
+
+    public double getOffSetZ() {
+        return offSetZ;
     }
 }

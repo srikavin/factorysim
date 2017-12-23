@@ -6,6 +6,8 @@ import me.infuzion.engine.render.lwjgl.util.ShaderProgram;
 import me.infuzion.engine.util.Utilities;
 import me.infuzion.engine.world.GameWorld;
 import org.joml.Matrix4f;
+import org.joml.Vector3f;
+import org.joml.Vector3fc;
 import org.lwjgl.system.MemoryUtil;
 
 import java.nio.FloatBuffer;
@@ -95,6 +97,7 @@ public class LWJGLRenderer implements Renderer {
             0.820f, 0.883f, 0.371f,
             0.982f, 0.099f, 0.879f
     };
+    private final Vector3fc upVector = new Vector3f(0, 1, 0);
     private FloatBuffer mvpMatrixBuffer;
     private int matrixId;
     private long window;
@@ -150,15 +153,21 @@ public class LWJGLRenderer implements Renderer {
         }
     }
 
-    private void setMVPUniform() {
+    private void setMVPUniform(Camera camera) {
         Matrix4f projection = new Matrix4f();
-        projection.perspective((float) Math.toRadians(110), 4.0f / 3.0f, 0.1f, 100f);
-
+        projection.setPerspective((float) (camera.getScale() * Math.toRadians(110)),
+                4.0f / 3.0f, 0.1f, 100f);
 
         Matrix4f model = new Matrix4f().identity();
 
-        Matrix4f view = new Matrix4f()
-                .lookAt(0, 1, -2, 0, 1, 0, 0, 1, 0);
+        float xOffset = (float) camera.getOffSetX();
+        float yOffset = (float) camera.getOffSetY();
+        float zOffset = (float) camera.getOffSetZ();
+
+        Vector3fc eye = new Vector3f(xOffset, yOffset, zOffset);
+        Vector3fc center = new Vector3f(xOffset, yOffset, 0);
+
+        Matrix4f view = new Matrix4f().setLookAt(eye, center, upVector);
 
         Matrix4f MVP = projection.mul(view).mul(model);
         MVP.get(mvpMatrixBuffer);
@@ -173,7 +182,7 @@ public class LWJGLRenderer implements Renderer {
 
         glBindVertexArray(vaoId);
 
-        setMVPUniform();
+        setMVPUniform(camera);
 
         glEnableVertexAttribArray(0);
         glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
