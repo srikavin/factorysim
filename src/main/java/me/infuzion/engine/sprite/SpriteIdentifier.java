@@ -17,7 +17,7 @@ public class SpriteIdentifier {
 
     @Override
     public String toString() {
-        return "[" + mod + "/" + name + (variation != null ? "/" + variation : "") + "] ";
+        return "[" + mod + "/" + name + (variation != null ? "_" + variation : "") + "] ";
     }
 
     @Override

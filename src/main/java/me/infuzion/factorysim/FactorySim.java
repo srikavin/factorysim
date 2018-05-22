@@ -15,9 +15,9 @@ import java.util.Arrays;
 
 public class FactorySim {
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
         System.out.println(ManagementFactory.getRuntimeMXBean().getName());
-        Thread.sleep(2500);
+//        Thread.sleep(2500);
 
         SpriteLoader spriteLoader = new SpriteLoader();
 

@@ -26,6 +26,9 @@ public class KeyHandler {
             for (KeyInput e : current) {
                 System.out.println("handling " + e);
                 switch (e) {
+                    case QUIT:
+                        System.exit(0);
+                        break;
                     case MOVE_LEFT:
                         camera.panLeft();
                         break;

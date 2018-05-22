@@ -68,7 +68,7 @@ public class SpriteLoader {
         }
     }
 
-    class SpriteInfo {
+    private static class SpriteInfo {
         String jsonString;
         Image image;
     }

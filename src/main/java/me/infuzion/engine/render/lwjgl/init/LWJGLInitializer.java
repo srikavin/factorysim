@@ -5,6 +5,7 @@ import me.infuzion.engine.input.LWJGLInputHandler;
 import me.infuzion.engine.render.Initializer;
 import me.infuzion.engine.render.Renderer;
 import me.infuzion.engine.render.lwjgl.LWJGLRenderer;
+import me.infuzion.engine.render.lwjgl.Window;
 import me.infuzion.engine.sprite.SpriteLoader;
 import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.glfw.GLFWVidMode;
@@ -30,7 +31,7 @@ public class LWJGLInitializer implements Initializer {
 
         glfwDefaultWindowHints();
         glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE);
-        glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
+        glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE);
         glfwWindowHint(GLFW_SAMPLES, 4);
         glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
         glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
@@ -38,19 +39,19 @@ public class LWJGLInitializer implements Initializer {
         glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
         glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GLFW_TRUE);
 
-        window = glfwCreateWindow(640, 640, "Factory Simulator", NULL, NULL);
+        window = glfwCreateWindow(640, 480, "Factory Simulator", NULL, NULL);
 
         if (window == NULL) {
             throw new IllegalStateException("Unable to create GLFW Window");
         }
 
         // Get the resolution of the primary monitor
-        GLFWVidMode vidmode = glfwGetVideoMode(glfwGetPrimaryMonitor());
+        GLFWVidMode videoMode = glfwGetVideoMode(glfwGetPrimaryMonitor());
         // Center our window
         glfwSetWindowPos(
                 window,
-                (vidmode.width() - 640) / 2,
-                (vidmode.height() - 640) / 2
+                (videoMode.width() - 640) / 2,
+                (videoMode.height() - 640) / 2
         );
 
         if (window == NULL) {
@@ -63,8 +64,9 @@ public class LWJGLInitializer implements Initializer {
 
         glfwSwapInterval(1);
         glfwShowWindow(window);
-        renderer = new LWJGLRenderer(window);
-        inputHandler = new LWJGLInputHandler(window);
+        Window windowWrapper = new Window(window);
+        renderer = new LWJGLRenderer(windowWrapper);
+        inputHandler = new LWJGLInputHandler(windowWrapper);
     }
 
     @Override

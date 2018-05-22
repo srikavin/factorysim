@@ -1,6 +1,6 @@
 package me.infuzion.engine.render.lwjgl;
 
-import me.infuzion.engine.render.Texture;
+import me.infuzion.engine.render.model.Texture;
 
 import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.opengl.GL30.glGenerateMipmap;
@@ -14,10 +14,10 @@ public class GLTexture {
         textureId = glGenTextures();
         glBindTexture(GL_TEXTURE_2D, textureId);
         glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA,
-                texture.getWidth(), texture.getHeight(),
-                0, GL_RGBA, GL_UNSIGNED_BYTE,
-                texture.getImageData());
+//        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA,
+//                texture.getWidth(), texture.getHeight(),
+//                0, GL_RGBA, GL_UNSIGNED_BYTE,
+//                texture());
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
         glGenerateMipmap(GL_TEXTURE_2D);
