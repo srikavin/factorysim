@@ -1,5 +1,7 @@
 package me.infuzion.engine.world;
 
+import org.joml.Vector3f;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,11 +10,15 @@ public class Position {
 
     private final int x;
     private final int y;
+    private final int z;
+    private final Vector3f vector3f;
     private final FacingDirection direction;
 
     Position(int x, int y, FacingDirection direction) {
         this.x = x;
         this.y = y;
+        this.z = 5;
+        this.vector3f = new Vector3f(x, y, z);
         this.direction = direction;
         cache.add(this);
     }
@@ -28,6 +34,10 @@ public class Position {
             }
         }
         return new Position(x, y, dir);
+    }
+
+    public Vector3f asVector() {
+        return vector3f;
     }
 
     @Override
@@ -74,5 +84,9 @@ public class Position {
 
     public FacingDirection getDirection() {
         return direction;
+    }
+
+    public int getZ() {
+        return z;
     }
 }

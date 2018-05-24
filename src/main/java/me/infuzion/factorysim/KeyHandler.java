@@ -7,6 +7,7 @@ import me.infuzion.engine.world.GameWorld;
 
 import java.util.List;
 import java.util.Set;
+import java.util.logging.Logger;
 
 public class KeyHandler {
     private final GameWorld world;
@@ -24,6 +25,7 @@ public class KeyHandler {
             Set<KeyInput> current = input.getKeyEvents();
 
             for (KeyInput e : current) {
+                Logger.getAnonymousLogger().info("Handling " + e);
                 System.out.println("handling " + e);
                 switch (e) {
                     case QUIT:

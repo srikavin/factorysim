@@ -1,7 +1,7 @@
 package me.infuzion.engine.render;
 
 public class Camera {
-    private final static double offSetZ = 5;
+    private double offSetZ = 5;
     private final static double yRot = Math.toRadians(25);
     private double scale = 2.0;
     private double offSetX = 0;
@@ -20,11 +20,11 @@ public class Camera {
     }
 
     public void zoomIn() {
-        scale += .1;
+        offSetZ += .1 * scale;
     }
 
     public void zoomOut() {
-        scale -= .1;
+        offSetZ -= .1 * scale;
     }
 
     public void panLeft() {

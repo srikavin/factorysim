@@ -1,5 +1,6 @@
 package me.infuzion.engine.input;
 
+import me.infuzion.engine.render.lwjgl.LWJGLRenderer;
 import me.infuzion.engine.render.lwjgl.Window;
 
 import java.util.EnumSet;
@@ -10,7 +11,7 @@ import static org.lwjgl.glfw.GLFW.*;
 public class LWJGLInputHandler implements InputHandler {
     private EnumSet<KeyInput> set = EnumSet.noneOf(KeyInput.class);
 
-    public LWJGLInputHandler(Window window) {
+    public LWJGLInputHandler(Window window, LWJGLRenderer renderer) {
         glfwSetScrollCallback(window.getPointer(), (win, xoffset, yoffset) -> {
             if (yoffset > 0) {
                 process(KeyInput.ZOOM_OUT, false);
@@ -43,6 +44,10 @@ public class LWJGLInputHandler implements InputHandler {
                 case GLFW_KEY_D:
                     process(KeyInput.MOVE_RIGHT, action);
                     break;
+                case GLFW_KEY_R:
+                    renderer.reloadShaders();
+                    break;
+
             }
         });
     }

@@ -66,7 +66,7 @@ public class LWJGLInitializer implements Initializer {
         glfwShowWindow(window);
         Window windowWrapper = new Window(window);
         renderer = new LWJGLRenderer(windowWrapper);
-        inputHandler = new LWJGLInputHandler(windowWrapper);
+        inputHandler = new LWJGLInputHandler(windowWrapper, (LWJGLRenderer) renderer);
     }
 
     @Override

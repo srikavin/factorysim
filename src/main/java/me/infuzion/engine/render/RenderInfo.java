@@ -29,6 +29,7 @@ public class RenderInfo {
         this.sprite = sprite;
         this.usingSharedAnimations = sharedAnimation;
         this.visible = visible;
+        setTexture(new Texture("assets/base/furnace/furnace_on.png"));
     }
 
     public Mesh getMesh() {
